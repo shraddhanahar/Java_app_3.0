@@ -73,6 +73,18 @@ pipeline{
                }
             }
         }
+        stage('Connect to JFrog'){
+         when { expression {  params.action == 'create' } }
+            steps{
+               script{
+                   
+                   def server = artifactory.server'jfrog-artifactory'
+                   server.credentialsId = artifactory.server'jenkins'
+                   def buildInfo = artifactory.newBuildInfo()
+                   build.info.env.capture = true
+               }
+            }
+        }
         stage('Docker Image Build'){
          when { expression {  params.action == 'create' } }
             steps{
