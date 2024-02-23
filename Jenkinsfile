@@ -95,7 +95,7 @@ pipeline{
         when { expression {  params.action == 'create' } }
            steps{
              script{
-                  sh 'curl -X PUT -u admin:Pass@2757 -T  /var/lib/jenkins/workspace/java-3.0/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar "http://34.229.70.2:8082/artifactory/example-repo-local/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar"'
+                  sh 'curl -X PUT -u admin:Pass@2757 -T  /var/lib/jenkins/workspace/jenkins_pipeline/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar "http://34.229.70.2:8082/artifactory/example-repo-local/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar"'
                  }
              }
         }
